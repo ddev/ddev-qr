@@ -1,0 +1,5 @@
+name: ddev-share
+
+project_files:
+- commands/host/qr
+- web-build/Dockerfile.qrencode
