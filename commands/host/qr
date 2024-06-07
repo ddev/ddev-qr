@@ -43,6 +43,11 @@ case $1 in
     exit 0;
     ;;
   share)
+    if [ "$GITPOD_WORKSPACE_ID" ]; then
+      # Assume the User wants the gitpod-routed website, and not the CDE
+      encode_gitpod_served_website
+    fi
+
     # User requests the share URL
     # Parse the URL from NGROK's API endpoint. We'll use jq which is inside the web container.
     URL=$(curl -s localhost:4040/api/tunnels | ddev . jq -r '.tunnels[0].public_url')
