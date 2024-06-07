@@ -13,11 +13,18 @@ qrencode() {
   ddev . /usr/bin/qrencode  -m 2 -t utf8 "$@"
 }
 
+# Encode the gitpod-routed website URL
+encode_gitpod_served_website() {
+  gp url 8080 | qrencode
+  echo "Remember to click 'Share Running Workspace'"
+  exit 0;
+}
+
 # Encore the primary URL
 encode_primary_https() {
   # If we're in a Gitpod workspace, use the Gitpod URL instead.
   if [ "$GITPOD_WORKSPACE_ID" ]; then
-    gp url | qrencode
+    encode_gitpod_served_website
   else
     qrencode $DDEV_PRIMARY_URL
   fi
