@@ -3,10 +3,10 @@
 ## #ddev-generated
 ## Description: Generate a QR code for a website
 ## Usage: qr https|http|share
-## Example: "ddev qr" (https is the default), "ddev qr https", "ddev qr http", "ddev qr share", "ddev qr https://ddev.com"
+## Example: "ddev qr" (https is the default), "ddev qr https", "ddev qr http", "ddev qr share", "ddev qr https://ddev.com","ddev qr gitpod"
 ## Execraw: false
 ## Flags: []
-## AutocompleteTerms: ["http", "share"]
+## AutocompleteTerms: ["http", "share", "gitpod"]
 
 # Call "qrencode" inside the web container
 qrencode() {
@@ -59,6 +59,11 @@ case $1 in
     fi
 
     qrencode $URL
+    exit 0;
+    ;;
+  gitpod)
+    # This encodes a link to the cloud development environment; aka "served git repository"
+    gp url | qrencode
     exit 0;
     ;;
   *)
