@@ -6,9 +6,12 @@ setup() {
   mkdir -p $TESTDIR
   export DDEV_NON_INTERACTIVE=true
   ddev delete -Oy ${PROJNAME} >/dev/null 2>&1 || true
+
+  # Copy over an expected code for testing
+  cp tests/testdata/expected-qrcode.txt "${TESTDIR}/expected-qrcode.txt"
+
   cd "${TESTDIR}"
   ddev config --project-name=${PROJNAME}
-  ddev start -y >/dev/null
 }
 
 teardown() {
@@ -19,8 +22,11 @@ teardown() {
 }
 
 health_checks() {
-  # Check if the qrcode is installed
-  ddev . qrencode --help | grep 'Usage: qrencode'
+  # Generate a QR code and compare it to confirmed working code.
+  # Note: "expected-qrcode.txt" may not display correctly in your text editor.
+  ddev qr > qrcode.txt
+  run diff qrcode.txt "${TESTDIR}/expected-qrcode.txt"
+  [ "$status" -eq 0 ]
 
   # Our command uses jq to parse the ngrok url. Check that it's installed
   ddev . jq --help | grep 'commandline JSON processor'
