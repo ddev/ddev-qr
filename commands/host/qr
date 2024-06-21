@@ -3,21 +3,28 @@
 ## #ddev-generated
 ## Description: Generate a QR code for a website
 ## Usage: qr https|http|share
-## Example: "ddev qr" (https is the default), "ddev qr https", "ddev qr http", "ddev qr share", "ddev qr https://ddev.com"
+## Example: "ddev qr" (https is the default), "ddev qr https", "ddev qr http", "ddev qr share", "ddev qr https://ddev.com","ddev qr gitpod"
 ## Execraw: false
 ## Flags: []
-## AutocompleteTerms: ["http", "share"]
+## AutocompleteTerms: ["http", "share", "gitpod"]
 
 # Call "qrencode" inside the web container
 qrencode() {
   ddev . /usr/bin/qrencode  -m 2 -t utf8 "$@"
 }
 
+# Encode the gitpod-routed website URL
+encode_gitpod_served_website() {
+  gp url 8080 | qrencode
+  echo "Remember to click 'Share Running Workspace'"
+  exit 0;
+}
+
 # Encore the primary URL
 encode_primary_https() {
   # If we're in a Gitpod workspace, use the Gitpod URL instead.
   if [ "$GITPOD_WORKSPACE_ID" ]; then
-    gp url | qrencode
+    encode_gitpod_served_website
   else
     qrencode $DDEV_PRIMARY_URL
   fi
@@ -36,6 +43,11 @@ case $1 in
     exit 0;
     ;;
   share)
+    if [ "$GITPOD_WORKSPACE_ID" ]; then
+      # Assume the User wants the gitpod-routed website, and not the CDE
+      encode_gitpod_served_website
+    fi
+
     # User requests the share URL
     # Parse the URL from NGROK's API endpoint. We'll use jq which is inside the web container.
     URL=$(curl -s localhost:4040/api/tunnels | ddev . jq -r '.tunnels[0].public_url')
@@ -47,6 +59,11 @@ case $1 in
     fi
 
     qrencode $URL
+    exit 0;
+    ;;
+  gitpod)
+    # This encodes a link to the cloud development environment; aka "served git repository"
+    gp url | qrencode
     exit 0;
     ;;
   *)
