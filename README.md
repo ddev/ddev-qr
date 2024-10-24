@@ -22,8 +22,21 @@ This helps reduce errors and frustration when entering URLs on portable devices.
 
 1. Install the app.
 
+    For DDEV v1.23.5 or above run
+
+    ```shell
+    ddev add-on get tyler36/ddev-qr
+    ```
+
+    For earlier versions of DDEV run
+
     ```shell
     ddev get tyler36/ddev-qr
+    ```
+
+    Then restart your project
+
+    ```shell
     ddev restart
     ```
 
