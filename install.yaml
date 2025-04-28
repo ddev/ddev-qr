@@ -1,4 +1,4 @@
-name: ddev-share
+name: qr
 
 project_files:
 - commands/host/qr
