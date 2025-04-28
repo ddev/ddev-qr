@@ -2,4 +2,4 @@ name: qr
 
 project_files:
 - commands/host/qr
-- web-build/Dockerfile.qrencode
+- config.qr.yaml
