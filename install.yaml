@@ -1,5 +1,8 @@
 name: qr
 
+# Available with DDEV v1.23.3+, and works only for DDEV v1.23.3+ binaries
+ddev_version_constraint: '>= v1.24.3'
+
 project_files:
 - commands/host/qr
 - config.qr.yaml
