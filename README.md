@@ -1,5 +1,7 @@
 [![add-on registry](https://img.shields.io/badge/DDEV-Add--on_Registry-blue)](https://addons.ddev.com)
-[![tests](https://github.com/tyler36/ddev-qr/actions/workflows/tests.yml/badge.svg)](https://github.com/tyler36/ddev-qr/actions/workflows/tests.yml) ![project is maintained](https://img.shields.io/maintenance/yes/2026.svg)
+[![tests](https://github.com/tyler36/ddev-qr/actions/workflows/tests.yml/badge.svg)](https://github.com/tyler36/ddev-qr/actions/workflows/tests.yml)
+[![last commit](https://img.shields.io/github/last-commit/tyler36/ddev-qr)](https://github.com/tyler36/ddev-qr/commits)
+[![release](https://img.shields.io/github/v/release/tyler36/ddev-qr)](https://github.com/tyler36/ddev-qr/releases/latest)
 
 # DDEV-QR <!-- omit in toc -->
 
