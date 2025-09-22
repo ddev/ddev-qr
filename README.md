@@ -1,7 +1,7 @@
 [![add-on registry](https://img.shields.io/badge/DDEV-Add--on_Registry-blue)](https://addons.ddev.com)
-[![tests](https://github.com/tyler36/ddev-qr/actions/workflows/tests.yml/badge.svg)](https://github.com/tyler36/ddev-qr/actions/workflows/tests.yml)
-[![last commit](https://img.shields.io/github/last-commit/tyler36/ddev-qr)](https://github.com/tyler36/ddev-qr/commits)
-[![release](https://img.shields.io/github/v/release/tyler36/ddev-qr)](https://github.com/tyler36/ddev-qr/releases/latest)
+[![tests](https://github.com/ddev/ddev-qr/actions/workflows/tests.yml/badge.svg)](https://github.com/ddev/ddev-qr/actions/workflows/tests.yml)
+[![last commit](https://img.shields.io/github/last-commit/ddev/ddev-qr)](https://github.com/ddev/ddev-qr/commits)
+[![release](https://img.shields.io/github/v/release/ddev/ddev-qr)](https://github.com/ddev/ddev-qr/releases/latest)
 
 # DDEV-QR <!-- omit in toc -->
 
@@ -26,7 +26,7 @@ This helps reduce errors and frustration when entering URLs on portable devices.
 1. Install the app.
 
     ```shell
-    ddev add-on get tyler36/ddev-qr
+    ddev add-on get ddev/ddev-qr
     ```
 
     Then restart your project
@@ -74,7 +74,7 @@ Instead:
 - Scan with code with your phone to visit the site.
 
 Similarly, when using DDEV in Gitpod, DDEV defers to Gitpod's routing system that also generates random complex strings.
-Using `ddev qr` or `ddev qr https` inside a Gitpod environment will encode the Gitpod-routed DDEV URL instead. Eg. <https://tyler36-qrdemo-cksfu15uj8u4.ws-us131.gitpod.io/>
+Using `ddev qr` or `ddev qr https` inside a Gitpod environment will encode the Gitpod-routed DDEV URL instead. Eg. <https://ddev-qrdemo-cksfu15uj8u4.ws-us131.gitpod.io/>
 
 ## Components of the repository
 
