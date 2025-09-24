@@ -5,48 +5,42 @@
 
 # DDEV-QR <!-- omit in toc -->
 
-- [Introduction](#introduction)
-- [Getting started](#getting-started)
+- [Overview](#overview)
+- [Installation](#installation)
 - [Usage](#usage)
 - [What's a QR code?](#whats-a-qr-code)
 - [Why do I want to use it?](#why-do-i-want-to-use-it)
-- [Components of the repository](#components-of-the-repository)
 - [Contributing](#contributing)
+- [Credits](#credits)
 
-## Introduction
+## Overview
 
-DDEV-QR is a DDEV add-on that encodes DDEV URLs into [QR codes](#whats-a-qr-code).
+This add-on adds a command that encodes DDEV URLs into [QR codes](#whats-a-qr-code).
 
 It uses [qrencode](https://fukuchi.org/works/qrencode/) to parse a URL string into a QR code that is displayed in the terminal.
 
 This helps reduce errors and frustration when entering URLs on portable devices.
 
-## Getting started
+## Installation
 
-1. Install the app.
+```bash
+ddev add-on get ddev/ddev-qr
+ddev restart
+```
 
-    ```shell
-    ddev add-on get ddev/ddev-qr
-    ```
-
-    Then restart your project
-
-    ```shell
-    ddev restart
-    ```
+After installation, make sure to commit the `.ddev` directory to version control.
 
 ## Usage
 
-This add-on add a new command, `qr` that will generate a QR code as follows:
-
-- `ddev qr`: Encodes the primary website. Eg. <https://example.ddev.site>. Shorthand for `ddev qr https`.
-- `ddev qr https`: Encodes the HTTPS version of the primary website. Eg. <https://example.ddev.site>.
-- `ddev qr http`: Encodes the HTTP version of the primary website. Eg. <http://example.ddev.site>.
-- `ddev qr share`: Tries to find the share tunnel and encodes the random address.
-- `ddev qr _STRING_`: Encodes the value of `_STRING_`.
+| Command            | Description                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| `ddev qr`          | Encodes the primary website. Eg. <https://example.ddev.site>. Shorthand for `ddev qr https`. |
+| `ddev qr https`    | Encodes the HTTPS version of the primary website. Eg. <https://example.ddev.site>.           |
+| `ddev qr http`     | Encodes the HTTP version of the primary website. Eg. <http://example.ddev.site>.             |
+| `ddev qr share`    | Tries to find the share tunnel and encodes the random address.                               |
+| `ddev qr _STRING_` | Encodes the value of `_STRING_`.                                                             |
 
 Note: Using `ddev qr` or `ddev qr https` inside a Gitpod environment will encode the Gitpod-routed DDEV URL instead.
-
 
 ## What's a QR code?
 
@@ -76,13 +70,10 @@ Instead:
 Similarly, when using DDEV in Gitpod, DDEV defers to Gitpod's routing system that also generates random complex strings.
 Using `ddev qr` or `ddev qr https` inside a Gitpod environment will encode the Gitpod-routed DDEV URL instead. Eg. <https://ddev-qrdemo-cksfu15uj8u4.ws-us131.gitpod.io/>
 
-## Components of the repository
-
-- `commands/host/qr`: A helper command to interact with the encoder.
-- `Dockerfile.qrencode`: Docker file that installs `qrencode` inside the web container.
-
 ## Contributing
 
 PR are welcome, especially if they contain working tests.
+
+## Credits
 
 **Contributed and maintained by [@tyler36](https://github.com/tyler36)**
