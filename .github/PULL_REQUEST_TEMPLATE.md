@@ -9,7 +9,7 @@
 ## Manual Testing Instructions
 
 ```bash
-ddev add-on get https://github.com/tyler36/ddev-qr/tarball/<branch>
+ddev add-on get https://github.com/ddev/ddev-qr/tarball/refs/pull/REPLACE_ME_WITH_THIS_PR_NUMBER/head
 ddev restart
 ```
 
