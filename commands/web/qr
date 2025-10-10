@@ -10,7 +10,7 @@
 
 # Call "qrencode" inside the web container
 qrencode() {
-  ddev . /usr/bin/qrencode  -m 2 -t utf8 "$@"
+  /usr/bin/qrencode  -m 2 -t utf8 "$@"
 }
 
 # Encode the gitpod-routed website URL

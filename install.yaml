@@ -4,5 +4,5 @@ name: qr
 ddev_version_constraint: '>= v1.24.3'
 
 project_files:
-- commands/host/qr
+- commands/web/qr
 - config.qr.yaml
