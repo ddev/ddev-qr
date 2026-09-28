@@ -1,7 +1,7 @@
 name: qr
 
-# Available with DDEV v1.23.3+, and works only for DDEV v1.23.3+ binaries
-ddev_version_constraint: '>= v1.24.3'
+# This add-on is a part of DDEV since v1.25.5
+ddev_version_constraint: '>= v1.24.3, < v1.25.5'
 
 project_files:
 - commands/web/qr
