@@ -3,7 +3,18 @@
 [![last commit](https://img.shields.io/github/last-commit/ddev/ddev-qr)](https://github.com/ddev/ddev-qr/commits)
 [![release](https://img.shields.io/github/v/release/ddev/ddev-qr)](https://github.com/ddev/ddev-qr/releases/latest)
 
-# DDEV-QR <!-- omit in toc -->
+# DDEV-QR (obsolete and archived) <!-- omit in toc -->
+
+This add-on is a part of DDEV since [v1.25.5](https://github.com/ddev/ddev/releases/tag/v1.25.5). `ddev start` removes it from your project automatically. Use these commands instead:
+
+| Add-on command     | DDEV command                                                                                                    |
+| ------------------ | --------------------------------------------------------------------------------------------------------------- |
+| `ddev qr share`    | [`ddev share`](https://docs.ddev.com/en/stable/users/usage/commands/#share) prints a QR code for the tunnel URL |
+| `ddev qr`          | [`ddev launch --qr`](https://docs.ddev.com/en/stable/users/usage/commands/#launch)                              |
+| `ddev qr http`     | `ddev launch --qr http://<project>.ddev.site`                                                                   |
+| `ddev qr _STRING_` | `ddev exec --raw qrencode -m 2 -t ansi256utf8 "_STRING_"`                                                       |
+
+This add-on is archived.
 
 - [Overview](#overview)
 - [Installation](#installation)
